@@ -59,7 +59,7 @@ public class Student {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(long age) {
         this.age = age;
     }
 

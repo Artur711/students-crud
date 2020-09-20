@@ -19,12 +19,12 @@ public class StudentsController {
     private StudentRepository studentRepository;
 
     @Autowired
-    public StudentsController(StudentRepository studentRepository){
-        this.studentRepository=studentRepository;
+    public StudentsController(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
     }
 
     @GetMapping("/students")
-    public String showExStudents(Model model){
+    public String showExStudents(Model model) {
         if (studentRepository.count() > 0)
             model.addAttribute("students", studentRepository.findAll());
         else
@@ -33,15 +33,26 @@ public class StudentsController {
     }
 
     @GetMapping("/add")
-    public String showAddStudent(Student student){
+    public String showAddStudent(Student student) {
         return "create-student";
     }
 
     @PostMapping("/add")
-    public String addTheStudent(@Valid Student student, Model model){
-        System.out.println(student.getFirst_name());
+    public String addTheStudent(@Valid Student student, Model model) {
         studentRepository.save(student);
         model.addAttribute("students", studentRepository.findAll());
         return "redirect:students";
     }
+    @GetMapping("/edit/{id}")
+        public String showTheStudent(@PathVariable("id") long id, Model model){
+        Student student = studentRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("Invalid id"));
+        model.addAttribute("student", student);
+        return "update-student";
+    }
+
+    @PostMapping("/update/{id}")
+    public void updateTheStudent(){
+
+    }
+
 }

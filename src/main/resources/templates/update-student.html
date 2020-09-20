@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Student</title>
+</head>
+<body>
+<form action="#" th:action="@{/update/{id}(id=${student.id})}" th:object="${student}" method="post">
+    <label for="first_name">Name</label>
+    <input type="text" th:field="*{first_name}" id="first_name" placeholder="Name">
+<!--    <span th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></span>-->
+    <br>
+
+    <label for="last_name"> Sure Name</label>
+    <input type="text" th:field="*{last_name}" id="last_name" placeholder="Surname">
+<!--    <span th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></span>-->
+    <br>
+
+    <label for="age"> Age</label>
+    <input type="text" th:field="*{age}" id="age" placeholder="Age">
+<!--    <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>-->
+    <br>
+
+    <input type="submit" value="Update Student">
+</form>
+</body>
+</html>

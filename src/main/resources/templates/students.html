@@ -19,11 +19,12 @@
             </thead>
             <tbody>
             <tr th:each="user: ${students}">
-                <td th:text="${students.id}"></td>
-                <td th:text="${students.first_name}"></td>
-                <td th:text="${students.last_name}"></td>
-                <td th:text="${students.age}"></td>
-                <td><a th:href="@{edit/{id}(id=${students.id})}" class="btn">Edit</a></td>
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.first_name}"></td>
+                <td th:text="${user.last_name}"></td>
+                <td th:text="${user.age}"></td>
+                <td><a th:href="@{edit/{id}(id=${user.id})}" class="btn">Edit</a></td>
+                <td><a th:href="@{delete/{id}(id=${user.id})}" class="btn">Delete</a></td>
             </tr>
             </tbody>
         </table>

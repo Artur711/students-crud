@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <div th:switch="${students}" class="container">
+<a th:href="@{add}" class="btn"> ADD</a>
+<div th:switch="${students}" class="container">
         <h2 th:case="null">No students yet!</h2>
         <div th:case="*">
         <table>

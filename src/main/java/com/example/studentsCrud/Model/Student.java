@@ -14,24 +14,24 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotBlank(message = "First name can't be blank")
+//    @NotBlank(message = "First name can't be blank")
     private String first_name;
 
-    @NotBlank(message = "Last name can't be blank")
+//    @NotBlank(message = "Last name can't be blank")
     private String last_name;
 
-    @NotBlank(message = "Age can't be blank")
-    private  int age;
+//    @NotBlank(message = "Age can't be blank")
+    private  long age;
 
     public Student(){}
 
-    public Student(String first_name, String last_name, int age){
+    public Student(String first_name, String last_name, long age){
         this.first_name = first_name;
         this.last_name = last_name;
         this.age = age;
     }
 
-    public Student(long id, String first_name, String last_name, int age){
+    public Student(long id, String first_name, String last_name, long age){
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -55,7 +55,7 @@ public class Student {
         this.last_name = last_name;
     }
 
-    public int getAge() {
+    public long getAge() {
         return age;
     }
 
@@ -63,11 +63,11 @@ public class Student {
         this.age = age;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 }
